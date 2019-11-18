@@ -17,23 +17,20 @@ const StyledBar = styled.div`
 
 class ScaledBar extends React.Component {
 
-
   drawChart(){
     const data = this.props.data;
-
-    console.log(data)
 
     const x = d3.scaleLinear()
       .domain([0, d3.max(data)])
       .range([0, 400])
 
     d3.select(this.refs.myDiv)
-    .selectAll("div")
-    .data(data)
-      .enter()
-      .append("div")
-      .style("width", d => x(d) + "px")
-      .text(d => d);
+        .selectAll("div")
+        .data(data)
+          .enter()
+          .append("div")
+          .style("width", d => x(d) + "px")
+          .text(d => d);
   }
 
   componentDidMount(){
