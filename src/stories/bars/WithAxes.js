@@ -66,7 +66,9 @@ class WithAxes extends React.Component{
       .append('g')
         .attr('transform', `translate(${margin.left},${margin.right})`);
 
-    d3.tsv('data/data.tsv', this.type, (error, data) => {
+    d3.tsv('data/data.tsv', this.type).then(data => {
+
+      console.log(data)
       x.domain(data.map(d => d.name))
       y.domain([0, d3.max(data, d => d.value)])
 

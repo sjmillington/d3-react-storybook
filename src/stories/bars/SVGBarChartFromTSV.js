@@ -40,7 +40,7 @@ class SVGBarChartFromTSV extends React.Component{
     const chart = d3.select(this.refs.myDiv)
       .attr("width", chartWidth)
       
-    d3.tsv('data/data.tsv', this.type, (error, data) => {
+    d3.tsv('data/data.tsv', this.type).then(data => {
 
       x.domain([0, d3.max(data, d => d.value)])
 

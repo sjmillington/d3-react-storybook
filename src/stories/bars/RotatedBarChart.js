@@ -40,7 +40,7 @@ class RotatedBarChart extends React.Component{
       .attr('width', width)
       .attr('height', height)
 
-    d3.tsv('data/data.tsv', this.type, (error, data) => {
+    d3.tsv('data/data.tsv', this.type).then(data => {
 
       y.domain([0, d3.max(data, d => d.value)])
 
